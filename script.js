@@ -6,30 +6,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click interaction to change colors
     heartbeatDot.addEventListener('click', function() {
         const colors = [
-            '#ff0066', // Pink
-            '#00ff66', // Green
-            '#0066ff', // Blue
-            '#ff6600', // Orange
-            '#ff00ff', // Magenta
-            '#ffff00', // Yellow
-            '#00ffff'  // Cyan
+            { name: 'Pure White', bg: 'radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5))', shadow: 'rgba(255, 255, 255, 0.8)', border: 'rgba(255, 255, 255, 0.8)' },
+            { name: 'Crystal Clear', bg: 'radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4))', shadow: 'rgba(255, 255, 255, 0.7)', border: 'rgba(255, 255, 255, 0.7)' },
+            { name: 'Pearl White', bg: 'radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6))', shadow: 'rgba(255, 255, 255, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+            { name: 'Frosted Glass', bg: 'radial-gradient(circle, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3))', shadow: 'rgba(255, 255, 255, 0.6)', border: 'rgba(255, 255, 255, 0.6)' },
+            { name: 'Liquid Silver', bg: 'radial-gradient(circle, rgba(240, 248, 255, 0.9), rgba(240, 248, 255, 0.7), rgba(240, 248, 255, 0.5))', shadow: 'rgba(240, 248, 255, 0.8)', border: 'rgba(240, 248, 255, 0.8)' },
+            { name: 'Milk White', bg: 'radial-gradient(circle, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.45))', shadow: 'rgba(255, 255, 255, 0.75)', border: 'rgba(255, 255, 255, 0.75)' },
+            { name: 'Diamond Clear', bg: 'radial-gradient(circle, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6))', shadow: 'rgba(255, 255, 255, 1)', border: 'rgba(255, 255, 255, 1)' }
         ];
         
         const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        heartbeatDot.style.background = `radial-gradient(circle, ${randomColor}, ${randomColor}dd, ${randomColor})`;
+        heartbeatDot.style.background = randomColor.bg;
         heartbeatDot.style.boxShadow = `
-            0 0 20px ${randomColor},
-            0 0 40px ${randomColor},
-            0 0 60px ${randomColor},
-            0 0 80px ${randomColor},
-            inset 0 0 20px ${randomColor}80
+            0 0 20px ${randomColor.shadow},
+            0 0 40px ${randomColor.shadow},
+            0 0 60px ${randomColor.shadow},
+            0 0 80px ${randomColor.shadow},
+            inset 0 0 20px ${randomColor.shadow}
         `;
+        heartbeatDot.style.borderColor = randomColor.border;
         
         // Update pulse rings color
         const pulseRings = document.querySelectorAll('.pulse-ring');
         pulseRings.forEach(ring => {
-            ring.style.borderColor = randomColor;
+            ring.style.borderColor = randomColor.border;
         });
+        
+        console.log(`Changed to ${randomColor.name} fluid`);
     });
     
     // Add mouse movement effect
@@ -78,9 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let ambientTimer = 0;
     setInterval(function() {
         ambientTimer += 0.1;
-        const ambientGlow = Math.sin(ambientTimer) * 0.3 + 0.7;
-        heartbeatDot.style.filter = `brightness(${ambientGlow})`;
+        const ambientGlow = Math.sin(ambientTimer) * 0.2 + 0.8;
+        heartbeatDot.style.filter = `brightness(${ambientGlow}) drop-shadow(0 0 10px rgba(255, 255, 255, ${ambientGlow * 0.5}))`;
     }, 100);
     
-    console.log('Heartbeat website loaded! Click the dot to change colors, use spacebar to pause/resume, and arrow keys to control speed.');
+    console.log('Fluid heartbeat website loaded! Click the dot to change fluid colors, use spacebar to pause/resume, and arrow keys to control speed.');
 }); 

@@ -101,27 +101,28 @@ body::after {
 .heartbeat-dot {
     width: 60px;
     height: 60px;
-    background: radial-gradient(circle, #ff0066, #ff1a75, #ff0066);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5));
     border-radius: 50%;
     position: absolute;
     z-index: 10;
     box-shadow: 
-        0 0 20px #ff0066,
-        0 0 40px #ff0066,
-        0 0 60px #ff0066,
-        0 0 80px #ff0066,
-        inset 0 0 20px rgba(255, 0, 102, 0.5);
-    animation: heartbeat 1.2s ease-in-out infinite;
+        0 0 20px rgba(255, 255, 255, 0.8),
+        0 0 40px rgba(255, 255, 255, 0.6),
+        0 0 60px rgba(255, 255, 255, 0.4),
+        0 0 80px rgba(255, 255, 255, 0.2),
+        inset 0 0 20px rgba(255, 255, 255, 0.3);
+    animation: fluidHeartbeat 1.2s ease-in-out infinite;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .pulse-ring {
     position: absolute;
-    border: 2px solid #ff0066;
+    border: 2px solid rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     opacity: 0;
-    animation: pulse 2s ease-out infinite;
+    animation: fluidPulse 2s ease-out infinite;
     backdrop-filter: blur(2px);
 }
 
@@ -143,71 +144,82 @@ body::after {
     animation-delay: 1s;
 }
 
-@keyframes heartbeat {
+@keyframes fluidHeartbeat {
     0% {
-        transform: scale(1);
+        transform: scale(1) rotate(0deg);
+        border-radius: 50%;
         box-shadow: 
-            0 0 20px #ff0066,
-            0 0 40px #ff0066,
-            0 0 60px #ff0066,
-            0 0 80px #ff0066,
-            inset 0 0 20px rgba(255, 0, 102, 0.5);
+            0 0 20px rgba(255, 255, 255, 0.8),
+            0 0 40px rgba(255, 255, 255, 0.6),
+            0 0 60px rgba(255, 255, 255, 0.4),
+            0 0 80px rgba(255, 255, 255, 0.2),
+            inset 0 0 20px rgba(255, 255, 255, 0.3);
     }
     14% {
-        transform: scale(1.3);
+        transform: scale(1.3) rotate(2deg);
+        border-radius: 45% 55% 55% 45%;
         box-shadow: 
-            0 0 30px #ff0066,
-            0 0 60px #ff0066,
-            0 0 90px #ff0066,
-            0 0 120px #ff0066,
-            inset 0 0 30px rgba(255, 0, 102, 0.7);
+            0 0 30px rgba(255, 255, 255, 0.9),
+            0 0 60px rgba(255, 255, 255, 0.7),
+            0 0 90px rgba(255, 255, 255, 0.5),
+            0 0 120px rgba(255, 255, 255, 0.3),
+            inset 0 0 30px rgba(255, 255, 255, 0.4);
     }
     28% {
-        transform: scale(1.1);
+        transform: scale(1.1) rotate(-1deg);
+        border-radius: 55% 45% 45% 55%;
         box-shadow: 
-            0 0 25px #ff0066,
-            0 0 50px #ff0066,
-            0 0 75px #ff0066,
-            0 0 100px #ff0066,
-            inset 0 0 25px rgba(255, 0, 102, 0.6);
+            0 0 25px rgba(255, 255, 255, 0.8),
+            0 0 50px rgba(255, 255, 255, 0.6),
+            0 0 75px rgba(255, 255, 255, 0.4),
+            0 0 100px rgba(255, 255, 255, 0.2),
+            inset 0 0 25px rgba(255, 255, 255, 0.3);
     }
     42% {
-        transform: scale(1.4);
+        transform: scale(1.4) rotate(3deg);
+        border-radius: 40% 60% 60% 40%;
         box-shadow: 
-            0 0 35px #ff0066,
-            0 0 70px #ff0066,
-            0 0 105px #ff0066,
-            0 0 140px #ff0066,
-            inset 0 0 35px rgba(255, 0, 102, 0.8);
+            0 0 35px rgba(255, 255, 255, 1),
+            0 0 70px rgba(255, 255, 255, 0.8),
+            0 0 105px rgba(255, 255, 255, 0.6),
+            0 0 140px rgba(255, 255, 255, 0.4),
+            inset 0 0 35px rgba(255, 255, 255, 0.5);
     }
     70% {
-        transform: scale(1);
+        transform: scale(1) rotate(0deg);
+        border-radius: 50%;
         box-shadow: 
-            0 0 20px #ff0066,
-            0 0 40px #ff0066,
-            0 0 60px #ff0066,
-            0 0 80px #ff0066,
-            inset 0 0 20px rgba(255, 0, 102, 0.5);
+            0 0 20px rgba(255, 255, 255, 0.8),
+            0 0 40px rgba(255, 255, 255, 0.6),
+            0 0 60px rgba(255, 255, 255, 0.4),
+            0 0 80px rgba(255, 255, 255, 0.2),
+            inset 0 0 20px rgba(255, 255, 255, 0.3);
     }
     100% {
-        transform: scale(1);
+        transform: scale(1) rotate(0deg);
+        border-radius: 50%;
         box-shadow: 
-            0 0 20px #ff0066,
-            0 0 40px #ff0066,
-            0 0 60px #ff0066,
-            0 0 80px #ff0066,
-            inset 0 0 20px rgba(255, 0, 102, 0.5);
+            0 0 20px rgba(255, 255, 255, 0.8),
+            0 0 40px rgba(255, 255, 255, 0.6),
+            0 0 60px rgba(255, 255, 255, 0.4),
+            0 0 80px rgba(255, 255, 255, 0.2),
+            inset 0 0 20px rgba(255, 255, 255, 0.3);
     }
 }
 
-@keyframes pulse {
+@keyframes fluidPulse {
     0% {
         transform: scale(0.8);
         opacity: 1;
+        border-color: rgba(255, 255, 255, 0.8);
+    }
+    50% {
+        border-color: rgba(255, 255, 255, 0.4);
     }
     100% {
         transform: scale(2);
         opacity: 0;
+        border-color: rgba(255, 255, 255, 0.1);
     }
 }
 
