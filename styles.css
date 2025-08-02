@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.heartbeat-dot {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #ff0066, #ff1a75, #ff0066);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+    box-shadow: 
+        0 0 20px #ff0066,
+        0 0 40px #ff0066,
+        0 0 60px #ff0066,
+        0 0 80px #ff0066,
+        inset 0 0 20px rgba(255, 0, 102, 0.5);
+    animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+.pulse-ring {
+    position: absolute;
+    border: 2px solid #ff0066;
+    border-radius: 50%;
+    opacity: 0;
+    animation: pulse 2s ease-out infinite;
+}
+
+.pulse-1 {
+    width: 100px;
+    height: 100px;
+    animation-delay: 0s;
+}
+
+.pulse-2 {
+    width: 150px;
+    height: 150px;
+    animation-delay: 0.5s;
+}
+
+.pulse-3 {
+    width: 200px;
+    height: 200px;
+    animation-delay: 1s;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+        box-shadow: 
+            0 0 20px #ff0066,
+            0 0 40px #ff0066,
+            0 0 60px #ff0066,
+            0 0 80px #ff0066,
+            inset 0 0 20px rgba(255, 0, 102, 0.5);
+    }
+    14% {
+        transform: scale(1.3);
+        box-shadow: 
+            0 0 30px #ff0066,
+            0 0 60px #ff0066,
+            0 0 90px #ff0066,
+            0 0 120px #ff0066,
+            inset 0 0 30px rgba(255, 0, 102, 0.7);
+    }
+    28% {
+        transform: scale(1.1);
+        box-shadow: 
+            0 0 25px #ff0066,
+            0 0 50px #ff0066,
+            0 0 75px #ff0066,
+            0 0 100px #ff0066,
+            inset 0 0 25px rgba(255, 0, 102, 0.6);
+    }
+    42% {
+        transform: scale(1.4);
+        box-shadow: 
+            0 0 35px #ff0066,
+            0 0 70px #ff0066,
+            0 0 105px #ff0066,
+            0 0 140px #ff0066,
+            inset 0 0 35px rgba(255, 0, 102, 0.8);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 
+            0 0 20px #ff0066,
+            0 0 40px #ff0066,
+            0 0 60px #ff0066,
+            0 0 80px #ff0066,
+            inset 0 0 20px rgba(255, 0, 102, 0.5);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 
+            0 0 20px #ff0066,
+            0 0 40px #ff0066,
+            0 0 60px #ff0066,
+            0 0 80px #ff0066,
+            inset 0 0 20px rgba(255, 0, 102, 0.5);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .heartbeat-dot {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .pulse-1 {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .pulse-2 {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .pulse-3 {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heartbeat-dot {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .pulse-1 {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .pulse-2 {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .pulse-3 {
+        width: 120px;
+        height: 120px;
+    }
+} 
